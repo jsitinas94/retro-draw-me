@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Cell from './Cell';
 
 /* Need to map over the COLORS array, so we pull them from ../utils */
@@ -13,7 +13,18 @@ const Palette = (props) => {
   /**
    * Create constants for activeColor and setActiveColor, reading the value off of the props
    */
+  const {activeColor, setActiveColor} = props;
 
+  const renderActiveColor = (color, activeColor) => {
+  
+    if(color === activeColor) {
+      return true;
+    } else {
+      return false 
+    }
+  }
+
+  
 
   /**
    * For the template, you need to:
@@ -25,7 +36,17 @@ const Palette = (props) => {
    *    - has a prop of handleClick which is a function that calls setActiveColor, passing it 
    *      the color from the map
    */
-  return <div className="palette"></div>
+  return <div className="palette">
+    {COLORS.map((color, index) => (
+      <Cell key={index} color={ color }
+      isActive={ renderActiveColor(color, activeColor) } 
+      handleClick={ () => setActiveColor(color) }
+       />
+    ))}
+  </div>
 }
+
+
+
 
 export default Palette;
