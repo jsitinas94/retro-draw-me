@@ -11,7 +11,6 @@ import React from 'react';
  */
 const Cell = ({color, isActive, handleClick}) => {
 
-console.log(color, isActive)
   /* Create constants for color, isActive, and handleClick, reading the value off of props */
   
 
@@ -30,4 +29,4 @@ console.log(color, isActive)
   </div>
 }
 
-export default Cell:
+export default Cell;
