@@ -23,8 +23,6 @@ import {
  * with each other via state objects, and state functions.
  */
 const App = () => {
-  const [activeColor, setActiveColor] = useState(COLORS[0]);
-  const [cellList, setCellList] = useState(buildCellList())
   
   /**
    * Using useState you need to create:
@@ -32,6 +30,9 @@ const App = () => {
    * - activeColor, setActiveColor initialized to COLORS[0]
    * - cellList, setCellList initialized to buildCellList()
    */
+
+   const [activeColor, setActiveColor] = useState(COLORS[0]);
+   const [cellList, setCellList] = useState(buildCellList());
 
   return <div className="app">
     {/* Header needs no props */}
@@ -44,7 +45,9 @@ const App = () => {
     cellList={cellList}
     setCellList={setCellList}/>
     {/* ActionPanel needs to be passed activeColor, cellList, and setCellList */}
-    <ActionPanel />
+    <ActionPanel activeColor={activeColor}
+    cellList={cellList}
+    setCellList={setCellList}/>
   </div>
 }
 
