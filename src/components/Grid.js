@@ -7,7 +7,7 @@ import Cell from './Cell';
  * color cells, and needs to update the color of a clicked cell from the
  * activeColor when a user clicks on it.
  */
-const Grid = (props) => {
+const Grid = ({activeColor, cellList, setCellList}) => {
   /**
    * Create constants for activeColor, cellList, and setCellList, reading the value off of the props
    */
@@ -24,7 +24,25 @@ const Grid = (props) => {
    *        - updates the color of the clicked cell to the activeColor (the index from the map function is useful here)
    *        - calls setCellList, passing in the updated copy
    */
-  return <div className="grid"></div>
+  return <div className="grid">
+    {cellList.map((cell, index) => (
+      <Cell key={'grid-' + index} 
+      color={cell.color} 
+      handleClick={ () => {
+        const newCellList = [...cellList];
+        newCellList[index].color = activeColor;
+        setCellList(newCellList)
+      }}/>
+    ))}
+  </div>
 }
+
+
+// {COLORS.map((color, index) => (
+//   <Cell key={index} color={ color }
+//   isActive={ renderActiveColor(color, activeColor) } 
+//   handleClick={ () => setActiveColor(color) }
+//    />
+// ))}
 
 export default Grid;
