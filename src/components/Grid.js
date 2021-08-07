@@ -38,11 +38,4 @@ const Grid = ({activeColor, cellList, setCellList}) => {
 }
 
 
-// {COLORS.map((color, index) => (
-//   <Cell key={index} color={ color }
-//   isActive={ renderActiveColor(color, activeColor) } 
-//   handleClick={ () => setActiveColor(color) }
-//    />
-// ))}
-
 export default Grid;
